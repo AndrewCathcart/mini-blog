@@ -5,12 +5,15 @@ export default () => {
   const [title, setTitle] = useState('');
 
   const onSubmit = async (e) => {
+    if (!title.length) return;
     e.preventDefault();
+
     await axios.post('http://localhost:4000/posts', {
       title,
     });
 
     setTitle('');
+    window.location.reload();
   };
 
   return (
@@ -24,7 +27,7 @@ export default () => {
             onChange={(e) => setTitle(e.target.value)}
           ></input>
         </div>
-        <button className='btn btn-primary'>Submit Post</button>
+        <button className='btn btn-primary'>Post</button>
       </form>
     </div>
   );
