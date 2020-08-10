@@ -6,6 +6,6 @@ Trying to get to grips with the main issue that occurs when following Microservi
 
 We've artificially separated the posts and comments service so that we can handle the issue of joining the data together via a 3rd service - in reality these are small enough to be in their own service and handled at the code level.
 
-Later on I'll do another project using Kafka or NATS, but for now just implementing a basic Event Bus in Express.
+The moderation service could also be implemented very easily in the React app or existing comments service, but we've created it as a separate service to explore the difficulties that arise when building ontop of existing functionality with a new "simple feature".
 
-Following along with
+Later on I'll do another project using Kafka or NATS, but for now just implementing a basic Event Bus in Express.
