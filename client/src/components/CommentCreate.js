@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-export default ({ postId }) => {
+export default ({ postId, reload }) => {
   const [content, setContent] = useState('');
 
   const onSubmit = async (e) => {
@@ -13,7 +13,7 @@ export default ({ postId }) => {
     });
 
     setContent('');
-    window.location.reload();
+    reload(true);
   };
 
   return (

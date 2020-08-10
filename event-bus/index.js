@@ -5,10 +5,16 @@ const axios = require('axios');
 const app = express();
 app.use(bodyParser.json());
 
+const postsService = 'http://localhost:4000/events';
+const commentsService = 'http://localhost:4001/events';
+const queryService = 'http://localhost:4002/events';
+const moderationService = 'http://localhost:4003/events';
+
 const subscribers = [
-  'http://localhost:4000/events',
-  'http://localhost:4001/events',
-  'http://localhost:4002/events',
+  postsService,
+  commentsService,
+  queryService,
+  moderationService,
 ];
 
 app.post('/events/', (req, res) => {

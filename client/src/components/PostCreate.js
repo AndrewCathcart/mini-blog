@@ -1,21 +1,6 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React from 'react';
 
-export default () => {
-  const [title, setTitle] = useState('');
-
-  const onSubmit = async (e) => {
-    if (!title.length) return;
-    e.preventDefault();
-
-    await axios.post('http://localhost:4000/posts', {
-      title,
-    });
-
-    setTitle('');
-    window.location.reload();
-  };
-
+export default ({ onSubmit, title, setTitle }) => {
   return (
     <div>
       <form onSubmit={onSubmit}>
