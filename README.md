@@ -8,4 +8,4 @@ We've artificially separated the posts and comments service so that we can handl
 
 The moderation service could also be implemented very easily in the React app or existing comments service, but we've created it as a separate service to explore the difficulties that arise when building ontop of existing functionality with a new "simple feature".
 
-Later on I'll do another project using Kafka or NATS, but for now just implementing a basic Event Bus in Express.
+This is a super simple project, later on I'll do another project using Kafka or NATS, but for now just implementing a basic Event Bus in Express to solidify a base understanding of the underlying technologies.

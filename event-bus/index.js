@@ -17,14 +17,22 @@ const subscribers = [
   moderationService,
 ];
 
-app.post('/events/', (req, res) => {
+const events = [];
+
+app.post('/events', (req, res) => {
   const event = req.body;
+  events.push(event);
 
   subscribers.forEach((subscriber) => {
     axios.post(subscriber, event);
   });
 
   res.send({ status: 'ACK' });
+});
+
+// I realise real implementations of this are much more complex, this is just a naive implemention to try and fake what they are doing to handle event syncing
+app.get('/events', (req, res) => {
+  res.send(events);
 });
 
 app.listen('4005', () => {
