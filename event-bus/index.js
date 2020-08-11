@@ -6,9 +6,9 @@ const app = express();
 app.use(bodyParser.json());
 
 const postsService = 'http://posts-clusterip-srv:4000';
-const commentsService = 'http://localhost:4001';
-const queryService = 'http://localhost:4002';
-const moderationService = 'http://localhost:4003';
+const commentsService = 'http://comments-srv:4001';
+const queryService = 'http://query-srv:4002';
+const moderationService = 'http://moderation-srv:4003';
 
 const subscribers = [
   postsService,

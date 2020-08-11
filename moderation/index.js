@@ -7,7 +7,7 @@ const filter = new Filter();
 const app = express();
 app.use(bodyParser.json());
 
-const eventBus = 'http://localhost:4005';
+const eventBus = 'http://event-bus-srv:4005';
 
 app.post('/events', async (req, res) => {
   const { type } = req.body;

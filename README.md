@@ -20,7 +20,7 @@ This is a super simple project, later on I'll do another project using Kafka or 
 ```bash
 docker build -t andrewcathcart/whatever .
 docker push andrewcathcart/whatever
-kubectl apply -f infra/k8s/whatever-depl.yaml
+kubectl apply -f infra/k8s/whatever-depl.yaml (or kubectl apply -f [loc of depl scripts] to multi deploy)
 kubectl get pods
 kubectl get services
 ```
