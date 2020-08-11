@@ -1,6 +1,11 @@
 # mini-blog
 
-A mini-microservices fullstack project briefly touching areas such as [CQRS](https://martinfowler.com/bliki/CQRS.html), [Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html), N+1 selects problem etc, adapted from [this udemy course](https://www.udemy.com/course/microservices-with-node-js-and-react).
+A mini-microservices fullstack project adapted from [this udemy course](https://www.udemy.com/course/microservices-with-node-js-and-react) briefly touching areas such as
+
+- [CQRS](https://martinfowler.com/bliki/CQRS.html)
+- [Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html)
+- N+1 selects problem etc
+- Docker & Kubernetes
 
 Trying to get to grips with the main issue that occurs when following Microservice Architecture principles - data management between services.
 
