@@ -8,7 +8,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-const eventBus = 'http://localhost:4005';
+const eventBus = 'http://event-bus-srv:4005';
 const posts = {};
 
 app.get('/posts', (req, res) => {
