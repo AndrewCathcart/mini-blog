@@ -29,3 +29,31 @@ kubectl get services
 kubectl get deployments
 kubectl rollout restart deployment [depl_name]
 ```
+
+https://kubernetes.github.io/ingress-nginx/deploy/#docker-for-mac for ingress-nginx
+
+### Requirements
+
+- [Docker](https://docs.docker.com/get-docker/)
+
+- [Kubernetes](https://kubernetes.io/docs/setup/) - I just enabled it in the Docker for Windows application (Settings -> Kubernetes -> Enable Kubernetes -> Apply & Restart)
+
+- [Skaffold](https://skaffold.dev/docs/install/) - This required me to install Chocolately as I was using Windows for dev
+
+- [ingress-nginx](https://kubernetes.github.io/ingress-nginx/deploy/#docker-for-mac)
+
+As I was just developing locally I had to change my hosts file for the client to be routed correctly. I appended the following line
+
+```
+127.0.0.1 posts.com
+```
+
+to C:\Windows\System32\drivers\etc - This wouldn't be needed if we deployed the front-end to prod.
+
+### Running
+
+Once all the requirements are installed you can then simply run `skaffold dev` from the root of this project to spin up all of the containers. Then navigate to posts.com in your browser.
+
+If you make any local changes to the services in this project, Skaffold will rebuild the affected service using the workflow described in skaffold.yaml
+
+- in this case just rebuilding our Docker container and redeploying it via the Kubernetes manifest files inside infra/k8s

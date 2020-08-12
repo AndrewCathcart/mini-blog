@@ -10,7 +10,7 @@ export default () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await axios.get('http://localhost:4002/posts');
+      const res = await axios.get('http://posts.com/posts');
 
       setPosts(res.data);
     };
@@ -23,7 +23,7 @@ export default () => {
     if (!postTitle.length) return;
     e.preventDefault();
 
-    await axios.post('http://localhost:4000/posts', {
+    await axios.post('http://posts.com/posts/create', {
       title: postTitle,
     });
 
