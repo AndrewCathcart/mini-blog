@@ -15,6 +15,22 @@ The moderation service could also be implemented very easily in the React app or
 
 This is a super simple project, later on I'll do another project using Kafka or NATS, but for now just implementing a basic Event Bus in Express to solidify a base understanding of the underlying technologies.
 
+### Lessons learned
+
+- The big challenge in microservices is data
+- There's a lot of different approaches to sharing data between services. Probably best to focus on async communication, but it's a sliding scale between sync and async. Sync is a lot easier to implement, but it has many downsides in a production environment.
+- Async communication focuses on communicating changes using _events_ sent to an _event bus_. Every service ends up being self sufficient, and we achieve a nice separation of concerns (e.g. a service goes down, no strict dependency between services so rest are unaffected and can replay event bus events to the downed service when it comes back online to recover).
+- Docker & Kubernetes are a bit of a pain to setup, but make it very easy to deploy and scale.
+
+### Pain points and solutions for future project
+
+- Lots of duplicated code between microservices - we could build a central library as an NPM module to share code
+- Really difficult to picture the flow of events between services - define all events in the above shared library
+- Really difficult to remember what properties an event should have - use typescript
+- Difficult to test some event flows - write automated tests for as much as possible
+- All local development, Windows specific solutions etc for installing things - run a k8s cluster in the cloud and develop on it
+- Is there a strange set of events that might break my program? Concurrency problems e.g. race conditions (What if i receive a comment before i receive the post the comment belongs to?) - introduce a lot of code to handle concurrency issues
+
 ### Useful docker / kubectl commands
 
 ```bash
