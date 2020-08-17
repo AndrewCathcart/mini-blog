@@ -46,8 +46,6 @@ kubectl get deployments
 kubectl rollout restart deployment [depl_name]
 ```
 
-https://kubernetes.github.io/ingress-nginx/deploy/#docker-for-mac for ingress-nginx
-
 ### Requirements
 
 - [Docker](https://docs.docker.com/get-docker/)
